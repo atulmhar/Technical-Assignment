@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2>Partner List</h2>
+    <a href="{% url 'add_partner' %}">Add New Partner</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for partner in partners %}
+                <tr>
+                    <td>{{ partner.name }}</td>
+                    <td>{{ partner.email }}</td>
+                    <td>{{ partner.phone }}</td>
+                    <td>
+                        <a href="{% url 'partner_detail' partner.pk %}">View</a> |
+                        <a href="{% url 'edit_partner' partner.pk %}">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

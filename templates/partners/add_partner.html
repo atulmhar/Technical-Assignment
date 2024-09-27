@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Partner</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2>Add New Partner</h2>
+    <form method="post" action="{% url 'add_partner' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Partner</button>
+    </form>
+    <a href="{% url 'partner_list' %}">Back to Partner List</a>
+</body>
+</html>

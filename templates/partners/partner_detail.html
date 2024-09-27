@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2>{{ partner.name }}</h2>
+    <p><strong>Email:</strong> {{ partner.email }}</p>
+    <p><strong>Phone:</strong> {{ partner.phone }}</p>
+    <p><strong>Address:</strong> {{ partner.address }}</p>
+    <a href="{% url 'edit_partner' partner.pk %}">Edit</a> |
+    <a href="{% url 'partner_list' %}">Back to Partner List</a>
+</body>
+</html>
